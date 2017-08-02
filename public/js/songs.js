@@ -57,14 +57,15 @@
 					return;
 				}
 				this.error = false;
+				const vm = this;
 				axios.post('/filtrar', {
 					genero: this.genero,
 					nombre: this.nombreBanda
 				})
 				.then(function(response){
 					// Esto debe reemplazar las bandas, no los generos, es solo una prueba de concepto
-					// Por ahora no hice funcionar el post en laravel, en el archivo web.php
-					this.generos = response.data;
+					//vm.generos = response.data.generos;
+					vm.bandas = response.data.bandas;
 				})
 				.catch(function(error){
 					console.log(error);
