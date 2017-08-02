@@ -62,6 +62,8 @@
 					nombre: this.nombreBanda
 				})
 				.then(function(response){
+					// Esto debe reemplazar las bandas, no los generos, es solo una prueba de concepto
+					// Por ahora no hice funcionar el post en laravel, en el archivo web.php
 					this.generos = response.data;
 				})
 				.catch(function(error){
@@ -98,6 +100,9 @@
 					}
 				]
 			 }
+
+			* Las imagenes estan como una url de wikipedia, por lo cual sin inet no funcionan
+			* Hay que modificar eso si se quiere laburar offline
 			
 			* La pegada se realiza asi:
 			axios.get('/bandas').then(response => this.bandas = response.data.bandas);
